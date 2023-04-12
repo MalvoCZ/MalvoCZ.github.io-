@@ -22,45 +22,26 @@
     <li><a href="https://www.behance.net/katerinanovakova" target="_blank">Můj Behance portfólio</a></li>
     <li><a href="https://www.instagram.com/kat_designs" target="_blank">Můj Instagram profil</a></li>
   </ul>
+
+  <h2>Obrázky Prahy</h2>
+  <img id="image" src="praha1.jpg" width="400" height="300">
+  <button onclick="changeImage()">Změnit obrázek</button>
+
+  <script>
+    // Pole s cestami k obrázkům
+    var images = ["praha1.jpg", "praha2.jpg", "praha3.jpg"];
+    var currentIndex = 0; // Aktuální index obrázku
+
+    // Funkce pro změnu obrázku
+    function changeImage() {
+      // Získání reference na img element
+      var img = document.getElementById("image");
+      
+      // Změna src atributu obrázku na novou cestu
+      currentIndex = (currentIndex + 1) % images.length;
+      img.src = images[currentIndex];
+    }
+  </script>
 </body>
 
 </html>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Obrázek Prahy</title>
-    <script>
-        // Pole s cestami k obrázkům
-        var images = ["praha1.jpg", "praha2.jpg", "praha3.jpg"];
-        var currentIndex = 0; // Aktuální index obrázku
-
-        // Funkce pro změnu obrázku
-        function changeImage() {
-            // Získání reference na img element
-            var img = document.getElementById("image");
-
-            // Změna zdroje obrázku na základě aktuálního indexu
-            img.src = images[currentIndex];
-
-            // Zvýšení indexu pro další obrázek
-            currentIndex++;
-
-            // Pokud jsme na konci pole, vrátíme se na začátek
-            if (currentIndex === images.length) {
-                currentIndex = 0;
-            }
-        }
-
-        // Spuštění funkce pro změnu obrázku po načtení stránky
-        window.onload = function() {
-            setInterval(changeImage, 3000); // Změna obrázku každých 3 sekundy
-        };
-    </script>
-</head>
-<body>
-    <h1>Obrázek Prahy</h1>
-    <img id="image" src="praha1.jpg" alt="Obrázek Prahy">
-</body>
-</html>
-
